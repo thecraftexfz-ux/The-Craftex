@@ -1,0 +1,55 @@
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: var(--grain-opacity);
+  pointer-events: none;
+  background-image: url('/grain/noise.svg');
+  background-size: 240px 240px;
+}
+
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 79;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 42%, rgba(0, 0, 0, var(--vignette-opacity)) 100%);
+}
+
+.editorial-image-frame {
+  overflow: hidden;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
+}
+
+.editorial-image {
+  transition: transform 1.2s var(--luxury-easing);
+}
+
+.editorial-image-frame:hover .editorial-image {
+  transform: scale(1.06);
+}
+
+.cinematic-gradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 50%, rgba(242, 231, 222, 0.3));
+}
+
+.masonry-grid {
+  column-count: 1;
+  column-gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+
+  .masonry-item:nth-child(even) {
+    margin-top: 120px;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 64px;
+}
+

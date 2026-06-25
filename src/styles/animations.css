@@ -1,0 +1,49 @@
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes slide-fade {
+  0%,
+  25% {
+    opacity: 0;
+  }
+  30%,
+  55% {
+    opacity: 1;
+  }
+  60%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 30s var(--luxury-easing) infinite alternate;
+}
+
+.slide-1 {
+  animation: slide-fade 24s infinite;
+}
+
+.slide-2 {
+  animation: slide-fade 24s infinite 8s;
+}
+
+.slide-3 {
+  animation: slide-fade 24s infinite 16s;
+}
+

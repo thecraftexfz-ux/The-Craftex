@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/typography.css';
+@import '../styles/cinematic.css';
+@import '../styles/luxury-effects.css';
+@import '../styles/animations.css';
+
+:root {
+  --luxury-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.6s;
+  --duration-base: 1s;
+  --duration-slow: 1.4s;
+  --duration-cinematic: 2s;
+  --section-gap: 120px;
+  --container-max: 1440px;
+  --space-desktop: 80px;
+  --space-mobile: 24px;
+  --grain-opacity: 0.04;
+  --vignette-opacity: 0.1;
+}
+
+html,
+body {
+  background: #f2e7de;
+  color: #1c1b1b;
+  font-family: var(--font-body), sans-serif;
+  scroll-behavior: auto;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #615e57;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2e7de;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #615e57;
+}
+
+@layer utilities {
+  .luxury-container {
+    @apply mx-auto w-full max-w-container-max px-margin-mobile md:px-margin-desktop;
+  }
+
+  .luxury-section {
+    @apply py-section-gap;
+  }
+
+  .asymmetric-line {
+    height: 1px;
+    background: linear-gradient(90deg, #d2c5b2 0%, transparent 100%);
+  }
+
+  .nav-link {
+    @apply relative font-body text-[11px] uppercase tracking-[0.2em] text-on-surface-variant transition-colors duration-500 hover:text-primary;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: currentColor;
+    transition: width var(--duration-fast) var(--luxury-easing);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .glass-nav {
+    background: rgba(242, 231, 222, 0.01);
+    backdrop-filter: blur(0px);
+    border-bottom: 1px solid rgba(203, 198, 188, 0);
+    transition:
+      background var(--duration-base) var(--luxury-easing),
+      backdrop-filter var(--duration-base) var(--luxury-easing),
+      border-color var(--duration-base) var(--luxury-easing);
+  }
+
+  .glass-nav.scrolled {
+    background: rgba(242, 231, 222, 0.82);
+    backdrop-filter: blur(20px);
+    border-color: rgba(123, 119, 110, 0.15);
+  }
+}
+
