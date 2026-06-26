@@ -23,6 +23,17 @@ type Web3FormsResponse = {
   message?: string;
 };
 
+const getWeb3FormsResult = async (response: Response): Promise<Web3FormsResponse> => {
+  try {
+    return (await response.json()) as Web3FormsResponse;
+  } catch {
+    return {
+      success: false,
+      message: 'The form service returned an unexpected response. Please try again.'
+    };
+  }
+};
+
 export default function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -45,6 +56,10 @@ export default function ContactSection() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    const formDataPayload = new FormData(form);
+    const payload = Object.fromEntries(formDataPayload.entries());
+
     setIsSubmitting(true);
     setSuccessMessage('');
     setErrorMessage('');
@@ -52,12 +67,13 @@ export default function ContactSection() {
     try {
       const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        body: new FormData(event.currentTarget),
+        body: JSON.stringify(payload),
         headers: {
+          'Content-Type': 'application/json',
           Accept: 'application/json'
         }
       });
-      const result = (await response.json()) as Web3FormsResponse;
+      const result = await getWeb3FormsResult(response);
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || 'Unable to send your inquiry at this time.');
@@ -72,7 +88,7 @@ export default function ContactSection() {
         phone: '',
         message: ''
       });
-      event.currentTarget.reset();
+      form.reset();
     } catch (error) {
       setErrorMessage(
         error instanceof Error
