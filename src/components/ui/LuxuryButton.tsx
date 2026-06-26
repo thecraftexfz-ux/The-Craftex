@@ -1,16 +1,22 @@
 import Link from 'next/link';
-import type { ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import { cn } from '@/lib/utils/cn';
 
-type LuxuryButtonProps = {
+type LuxuryButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: string;
   children: ReactNode;
   className?: string;
   variant?: 'solid' | 'outline';
 };
 
-export function LuxuryButton({ href, children, className, variant = 'solid' }: LuxuryButtonProps) {
+export function LuxuryButton({
+  href,
+  children,
+  className,
+  variant = 'solid',
+  ...buttonProps
+}: LuxuryButtonProps) {
   const classes = cn(
     'label-caps inline-flex items-center justify-center px-10 py-5 transition-all duration-700 ease-luxury',
     variant === 'solid'
@@ -27,6 +33,9 @@ export function LuxuryButton({ href, children, className, variant = 'solid' }: L
     );
   }
 
-  return <button className={classes}>{children}</button>;
+  return (
+    <button className={classes} {...buttonProps}>
+      {children}
+    </button>
+  );
 }
-
