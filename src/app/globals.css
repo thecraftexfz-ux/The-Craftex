@@ -1,11 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import '../styles/typography.css';
 @import '../styles/cinematic.css';
 @import '../styles/luxury-effects.css';
 @import '../styles/animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --luxury-easing: cubic-bezier(0.22, 1, 0.36, 1);

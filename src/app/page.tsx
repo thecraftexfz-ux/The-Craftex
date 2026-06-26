@@ -11,7 +11,9 @@ const HeroSection = dynamic(() => import('@/components/sections/Hero'));
 const PortfolioSection = dynamic(() => import('@/components/sections/Portfolio'));
 
 export const metadata: Metadata = {
-  title: 'Cinematic Bespoke Interiors',
+  title: {
+    absolute: 'The Craftex'
+  },
   description:
     'Award-winning cinematic luxury experience by The Craftex Studio. Bespoke interiors, editorial portfolio, and handcrafted design narratives.'
 };

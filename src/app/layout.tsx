@@ -16,7 +16,7 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'The Craftex Studio | Cinematic Bespoke Interiors',
+    default: 'The Craftex',
     template: '%s | The Craftex Studio'
   },
   description: siteConfig.description,
