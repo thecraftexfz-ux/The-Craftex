@@ -17,7 +17,7 @@ export function Footer() {
           <div>
             <h2 className="label-caps text-primary">Connect</h2>
             <ul className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <li className="body-md text-on-surface-variant">thecratexfz@gmail.com</li>
+              <li className="body-md text-on-surface-variant">thecraftexfz@gmail.com</li>
               <li className="body-md text-on-surface-variant">+91 9825611879</li>
               <li className="body-md text-on-surface-variant">
                 <Link
