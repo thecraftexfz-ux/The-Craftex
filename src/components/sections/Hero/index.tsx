@@ -1,8 +1,6 @@
 'use client';
 
-import { FadeUp } from '@/components/animations/FadeUp';
 import { HeroSlider } from '@/components/cinematic/HeroSlider';
-import { Container } from '@/components/layout/Container';
 import type { HeroSlide } from '@/types';
 
 const slides: HeroSlide[] = [
@@ -22,9 +20,8 @@ const slides: HeroSlide[] = [
 
 export default function HeroSection() {
   return (
-    <header className="relative flex h-screen items-center overflow-hidden">
+    <header className="relative flex h-[100svh] min-h-[520px] items-center overflow-hidden md:h-screen">
       <HeroSlider slides={slides} />
     </header>
   );
 }
-

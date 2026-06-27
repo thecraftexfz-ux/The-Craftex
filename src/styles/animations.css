@@ -35,6 +35,21 @@
   animation: ken-burns 30s var(--luxury-easing) infinite alternate;
 }
 
+@media (max-width: 767px) {
+  @keyframes ken-burns-mobile {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.04);
+    }
+  }
+
+  .ken-burns {
+    animation-name: ken-burns-mobile;
+  }
+}
+
 .slide-1 {
   animation: slide-fade 24s infinite;
 }

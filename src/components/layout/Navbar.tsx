@@ -24,8 +24,8 @@ export function Navbar() {
   return (
     <header className={cn('glass-nav fixed inset-x-0 top-0 z-[110]', scrolled && 'scrolled')}>
       <Container className="py-6">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="font-display text-2xl tracking-tight text-primary md:text-3xl">
+        <div className="flex items-center justify-between gap-4">
+          <Link href="/" className="min-w-0 font-display text-xl tracking-tight text-primary sm:text-2xl md:text-3xl">
             The Craftex Studio
           </Link>
 
@@ -51,11 +51,31 @@ export function Navbar() {
           </div>
 
           <button
-            className="text-primary md:hidden"
+            className="flex h-11 w-11 shrink-0 items-center justify-center text-primary md:hidden"
             aria-label="Toggle navigation"
+            aria-expanded={open}
             onClick={() => setOpen((prev) => !prev)}
           >
-            <span className="text-2xl leading-none">{open ? 'Ã—' : 'â‰¡'}</span>
+            <span className="relative h-5 w-5" aria-hidden="true">
+              <span
+                className={cn(
+                  'absolute left-0 top-1/2 h-px w-full bg-current transition-transform duration-300',
+                  open ? 'translate-y-0 rotate-45' : '-translate-y-2'
+                )}
+              />
+              <span
+                className={cn(
+                  'absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current transition-opacity duration-300',
+                  open && 'opacity-0'
+                )}
+              />
+              <span
+                className={cn(
+                  'absolute left-0 top-1/2 h-px w-full bg-current transition-transform duration-300',
+                  open ? 'translate-y-0 -rotate-45' : 'translate-y-2'
+                )}
+              />
+            </span>
           </button>
         </div>
 
@@ -76,10 +96,16 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="label-caps inline-flex w-full items-center justify-center border border-secondary px-5 py-4 text-center text-secondary transition-all duration-700 hover:bg-secondary hover:text-white"
+            >
+              Book a Consultation
+            </Link>
           </div>
         </div>
       </Container>
     </header>
   );
 }
-

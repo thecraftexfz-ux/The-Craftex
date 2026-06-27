@@ -33,7 +33,14 @@ export function HeroSlider({ slides }: HeroSliderProps) {
           className="absolute inset-0 transition-opacity duration-[1500ms] ease-luxury"
           style={{ opacity: slideIndex === index ? 1 : 0 }}
         >
-          <KenBurnsImage src={slide.src} alt={slide.alt} fill priority={slideIndex === 0} />
+          <KenBurnsImage
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            priority={slideIndex === 0}
+            sizes="100vw"
+            className="object-contain object-center md:object-cover"
+          />
         </div>
       ))}
       <div className="cinematic-gradient absolute inset-0" />
@@ -52,4 +59,3 @@ export function HeroSlider({ slides }: HeroSliderProps) {
     </div>
   );
 }
-
