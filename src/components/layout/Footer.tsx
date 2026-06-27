@@ -1,7 +1,5 @@
 import Link from 'next/link';
 
-import { navigation } from '@/data/navigation';
-
 import { Container } from './Container';
 
 export function Footer() {
@@ -19,9 +17,17 @@ export function Footer() {
           <div>
             <h2 className="label-caps text-primary">Connect</h2>
             <ul className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <li className="body-md text-on-surface-variant">contact@craftex.com</li>
+              <li className="body-md text-on-surface-variant">thecratexfz@gmail.com</li>
               <li className="body-md text-on-surface-variant">+91 9825611879</li>
-              <li className="body-md text-on-surface-variant">Instagram</li>
+              <li className="body-md text-on-surface-variant">
+                <Link
+                  href="https://www.instagram.com/the.craftex.studio?igsh=MTUxZHZuM2dybnkybw%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                The Craftex
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
